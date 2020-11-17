@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script type="text/javascript" src="js/metodos.js"></script>
+    <script type="text/javascript" src="js/libro.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+
+</head>
+
+<body onload="obtenerLibros()">
+    <header>
+        <section class="textos-header">
+            <h1>Mi biblioteca</h1>
+            <h2>Un mundo lleno de libros</h2>
+        </section>
+        <div class="wave" style="height: 150px; overflow: hidden;"><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C150.00,150.00 349.20,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z"
+                    style="stroke: none; fill: #fff;"></path>
+            </svg></div>
+    </header>
+
+
+    <div class="wrapper">
+        <h1 style="text-align: center;">Contamos con libros de autores reconocidos</h1>
+        <div class="cards_wrap">
+
+            <div class="card_item">
+                <div class="card_inner">
+                    <div class="card_top">
+                        <img id="img" src="img/gabriel.jpg" alt="car" />
+                    </div>
+                    <div class="card_bottom">
+                        <div class="card_category">
+
+                        </div>
+                        <div class="card_info">
+                            <p class="title">Gabriel García Márquez
+                            </p>
+                            <p>Gabriel José de la Concordia García Márquez ​​ fue un escritor, guionista, editor y periodista colombiano. </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card_item">
+                <div class="card_inner">
+                    <div class="card_top">
+                        <img id="img" src="img/jorge.jpg" alt="car" />
+                    </div>
+                    <div class="card_bottom">
+                        <div class="card_category">
+                        </div>
+                        <div class="card_info">
+                            <p class="title">Jorge Luis Borges
+                            </p>
+                            <p>
+                                Jorge Francisco Isidoro Luis Borges fue un escritor de cuentos, ensayos y poemas argentino </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card_item">
+                <div class="card_inner">
+                    <div class="card_top">
+                        <img id="img" src="img/charles.jpg" alt="car" />
+                    </div>
+                    <div class="card_bottom">
+                        <div class="card_category">
+
+                        </div>
+                        <div class="card_info">
+                            <p class="title">Charles Dickens
+                            </p>
+                            <p>
+                                Charles John Dickens fue un escritor británico. Creó algunos de los personajes de ficción más conocidos en el mundo </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="card_item">
+                <div class="card_inner">
+                    <div class="card_top">
+                        <img id="img" src="img/miguel.jpg" alt="car" />
+                    </div>
+                    <div class="card_bottom">
+                        <div class="card_category">
+
+                        </div>
+                        <div class="card_info">
+                            <p class="title">Miguel de Cervantes
+                            </p>
+                            <p>
+                                Miguel de Cervantes Saavedra fue un novelista, poeta, dramaturgo y soldado español. </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <style>
+
+    </style>
+
+
+
+    <div class="container" id="container-form">
+        <h2 style="text-align: center; margin-bottom: 16px;">Agregar nuevo libro</h2>
+
+        <form class="formulario">
+            <div class="row">
+                <div class="col-25">
+                    <label for="titulo">Nombre del libro </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="titulo" placeholder="El principito">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="autor">Nombre del autor </label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="autor" placeholder="Antoine de Saint-Exupéry">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+
+                    <label for="fecha">Fecha de publicación</label>
+                </div>
+                <div class="col-75">
+                    <!-- <input id="fecha" type="date" step="1" min="2020-07-20" max="2021-07-01" value="2020-07-28" class="field"> -->
+                    <input id="fecha" type="date" class="field">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="descripcion">Descripcion del libro</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="descripcion" placeholder="Literatura infantil, Fábula, Novela corta" style="height:100px"></textarea>
+                </div>
+            </div>
+
+            <div class="row">
+                <input id="btn-agg" type="button" value="Registrar libro" onclick="botonFormulario()">
+
+                <input id="btn-cancelar" style="margin-right: 4px; background-color: rgb(172, 172, 80); display: none" type="button" value="Cancelar" onclick="cancelar()">
+            </div>
+        </form>
+
+    </div>
+
+
+
+    <div id="main-container">
+
+        <table id="tabla-libros">
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Autor</th>
+                    <th>Fecha publicación</th>
+                    <th>Acciones</th>
+
+
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <footer>
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>Contacto</h4>
+                <p>1800 - Biblioteca</p>
+            </div>
+
+            <div class="content-foo">
+                <h4>Locacion</h4>
+                <p>Ecuador</p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; Biblioteca</h2>
+    </footer>
+</body>
+
+</html>
